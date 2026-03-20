@@ -1,0 +1,222 @@
+.surveillance-wrapper {
+  display: flex;
+  height: clamp(600px, 80vh, 1000px);
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 20px;
+  background: rgba(10, 15, 30, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.surveillance-sidebar {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-right: 1rem;
+  border-right: 1px dashed rgba(16, 185, 129, 0.3);
+}
+
+.sidebar-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #10b981;
+  font-weight: 800;
+  letter-spacing: 0.1rem;
+  font-family: monospace;
+}
+
+.section-title {
+  font-size: 0.7rem;
+  color: rgba(16, 185, 129, 0.6);
+  letter-spacing: 0.15rem;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.cam-list, .terminal-log {
+  display: flex;
+  flex-direction: column;
+}
+
+.cam-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem;
+  background: transparent;
+  border: 1px solid transparent;
+  color: rgba(255,255,255,0.6);
+  font-family: monospace;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.cam-btn:hover {
+  background: rgba(16, 185, 129, 0.05);
+  color: #10b981;
+}
+
+.cam-btn.active {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #10b981;
+}
+
+.live-dot {
+  margin-left: auto;
+  width: 6px;
+  height: 6px;
+  background: #ef4444;
+  border-radius: 50%;
+  animation: recBlink 1s infinite alternate;
+}
+
+.log-entries {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+}
+
+.log-entries .highlight { color: #f59e0b; }
+.log-entries .success { color: #10b981; }
+
+.cctv-monitor {
+  position: relative;
+  flex: 1;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #111;
+}
+
+.static-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  color: #10b981;
+  font-family: monospace;
+  text-align: center;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(16, 185, 129, 0.05) 3px, rgba(16, 185, 129, 0.05) 4px);
+  width: 100%;
+  height: 100%;
+}
+
+.glitch {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  text-shadow: 2px 0 red, -2px 0 blue;
+  animation: glitch-anim 0.2s infinite alternate;
+}
+
+@keyframes glitch-anim {
+  0% { transform: translate(1px, 0px); }
+  50% { transform: translate(-1px, 2px); }
+  100% { transform: translate(0px, -1px); }
+}
+
+.iframe-wrapper {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+.iframe-wrapper iframe {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+/* OVERLAYS */
+.scanlines {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%), 
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 4px, 3px 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.vignette {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
+  pointer-events: none;
+  z-index: 6;
+}
+
+.hud {
+  position: absolute;
+  z-index: 10;
+  font-family: monospace;
+  color: #10b981;
+  font-size: 0.85rem;
+  letter-spacing: 0.1rem;
+  text-shadow: 0 0 5px rgba(16, 185, 129, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.hud.top-left { top: 2rem; left: 2rem; }
+.hud.top-right { top: 2rem; right: 2rem; align-items: flex-end; }
+.hud.bottom-left { bottom: 2rem; left: 2rem; }
+.hud.bottom-right { bottom: 2rem; right: 2rem; align-items: flex-end; }
+
+.blink-rec {
+  color: #ef4444;
+  text-shadow: 0 0 8px rgba(239, 68, 68, 0.8);
+  font-weight: bold;
+  animation: recBlink 1s infinite alternate;
+}
+
+@keyframes recBlink {
+  from { opacity: 1; }
+  to { opacity: 0.2; }
+}
+
+.pointer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hud-target {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+}
+
+@media (max-width: 768px) {
+  .surveillance-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+  .surveillance-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px dashed rgba(16, 185, 129, 0.3);
+    padding-bottom: 1rem;
+  }
+  .cctv-monitor {
+    height: 400px;
+  }
+  .hud { font-size: 0.65rem; }
+}

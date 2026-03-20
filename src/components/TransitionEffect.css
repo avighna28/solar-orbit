@@ -1,0 +1,64 @@
+.transition-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s ease;
+  will-change: backdrop-filter;
+}
+
+.transition-container.visible {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+.flight-path {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: auto;
+}
+
+.asset-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-wrapper {
+  color: var(--accent-color);
+  filter: drop-shadow(0 0 30px var(--accent-color));
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.transition-label {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 0.5rem;
+  opacity: 0.8;
+  text-shadow: 0 0 20px var(--accent-color);
+}
+
+.trail {
+  width: 1500px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--accent-color));
+  box-shadow: 0 0 20px var(--accent-color);
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}

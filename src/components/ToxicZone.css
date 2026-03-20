@@ -1,0 +1,108 @@
+.toxic-zone-card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.toxic-glow {
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow: 0 0 30px rgba(239, 68, 68, 0.15);
+}
+
+.toxic-smoke {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at top left, rgba(239, 68, 68, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at bottom right, rgba(22, 163, 74, 0.1) 0%, transparent 40%);
+  background-size: 200% 200%;
+  animation: toxicDrift 6s infinite ease-in-out alternate;
+  mix-blend-mode: color-dodge;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+@keyframes toxicDrift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+.tz-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tz-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tz-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.city-label {
+  font-size: 0.70rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.15rem;
+}
+
+.aqi-value {
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 0.05rem;
+}
+
+.tz-details {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.8rem 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.tz-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.tz-stat .lbl {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.4);
+}
+
+.tz-stat .val {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.tz-message {
+  position: relative;
+  z-index: 1;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-style: italic;
+  font-weight: 500;
+}

@@ -1,0 +1,175 @@
+.flight-map-container {
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 500px;
+}
+
+.map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.header-left h3 {
+  font-size: 0.9rem;
+  letter-spacing: 0.2rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.pulse-icon {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; filter: blur(0px); }
+  50% { opacity: 1; filter: blur(2px); }
+}
+
+.map-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-neon);
+  letter-spacing: 0.05rem;
+}
+
+.map-viewport {
+  position: relative;
+  flex: 1;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.world-map {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+}
+
+.land {
+  fill: rgba(168, 85, 247, 0.03);
+  stroke: rgba(168, 85, 247, 0.1);
+  stroke-width: 0.5;
+}
+
+.flight-dot {
+  filter: drop-shadow(0 0 5px var(--accent-neon));
+}
+
+.flight-overlay {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  pointer-events: none;
+}
+
+.flight-card-mini {
+  pointer-events: all;
+  padding: 0.8rem 1rem;
+  min-width: 180px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(15, 23, 42, 0.6) !important;
+}
+
+.flight-id-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.plane-icon {
+  color: var(--accent-neon);
+  transform: rotate(45deg);
+}
+
+.flight-id {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: white;
+}
+
+.status-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.on-time { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+.delayed { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+
+.route-info {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  justify-content: space-between;
+}
+
+.airport {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.progress-bar {
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--accent-neon));
+  box-shadow: 0 0 10px var(--accent-neon);
+}
+
+.map-footer {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .flight-overlay {
+    position: relative;
+    top: 0;
+    left: 0;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 1rem;
+    gap: 1rem;
+  }
+}

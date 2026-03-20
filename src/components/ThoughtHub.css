@@ -1,0 +1,250 @@
+.thought-hub-container {
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem;
+  border-radius: 32px;
+  background: radial-gradient(circle at center, rgba(168, 85, 247, 0.05), #050505);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  position: relative;
+}
+
+.vibe-section {
+  flex: 1;
+  max-width: 450px;
+}
+
+.thought-content {
+  flex: 1.2;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.vibe-card {
+  padding: 2rem;
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.vibe-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #a855f7;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.15rem;
+}
+
+.vibe-stats {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.vibe-circle {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-chart {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.circle-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.05);
+  stroke-width: 3.5;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 10px var(--accent-neon));
+}
+
+.vibe-value {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vibe-value .percent {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: white;
+}
+
+.vibe-value .label {
+  font-size: 0.5rem;
+  font-weight: 700;
+  color: #a855f7;
+  letter-spacing: 0.1rem;
+}
+
+.vibe-info h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.vibe-msg {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1rem;
+}
+
+.vibe-indicators {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot.chill { background: #a855f7; box-shadow: 0 0 5px #a855f7; }
+.dot.chaos { background: rgba(255, 255, 255, 0.1); }
+
+/* Thought Content Styles */
+.thought-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(252, 211, 77, 0.1);
+  padding: 0.6rem 1.2rem;
+  border-radius: 100px;
+  color: #fcd34d;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+  margin: 0 auto 2rem auto;
+  width: fit-content;
+  border: 1px solid rgba(252, 211, 77, 0.2);
+}
+
+.main-thought {
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1.4;
+  color: white;
+  margin-bottom: 3rem;
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(to right, #fff, rgba(255,255,255,0.7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255,255,255,0.1);
+}
+
+.thought-title {
+  font-size: 1rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 2rem;
+  opacity: 0.6;
+}
+
+.quote-icon {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.author-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  color: #a855f7;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.15rem;
+}
+
+.author-tag .line {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(168, 85, 247, 0.4), transparent);
+}
+
+.cosmic-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+.p1 {
+  width: 300px;
+  height: 300px;
+  background: rgba(168, 85, 247, 0.1);
+  top: -100px;
+  left: -100px;
+}
+
+.p2 {
+  width: 250px;
+  height: 250px;
+  background: rgba(6, 182, 212, 0.1);
+  bottom: -100px;
+  right: -100px;
+}
+
+@media (max-width: 1024px) {
+  .thought-hub-container {
+    flex-direction: column;
+    height: auto;
+    padding: 2rem 1rem;
+    gap: 3rem;
+  }
+  
+  .vibe-section, .thought-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .main-thought {
+    font-size: 1.4rem;
+  }
+}

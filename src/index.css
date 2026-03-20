@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;610;700&display=swap');
+
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --bg-dark: #050505;
+  --bg-card: rgba(15, 23, 42, 0.4);
+  --border-card: rgba(255, 255, 255, 0.08);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.5);
+  --accent-neon: #a855f7; /* Electric Purple */
+  --accent-cyan: #06b6d4; /* Vibrant Cyan */
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+}
+
+.glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-card);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  will-change: backdrop-filter;
+}
+
+.neon-border {
+  border: 1px solid var(--accent-neon);
+  box-shadow: 0 0 15px var(--accent-neon);
+}
+
+
+.gradient-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: background 1s ease-in-out;
+}
+
+/* Weather gradients */
+.bg-clear-day { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+.bg-clear-night { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); }
+.bg-clouds { background: linear-gradient(135deg, #606c88 0%, #3f4c6b 100%); }
+.bg-rain { background: linear-gradient(135deg, #203a43 0%, #2c5364 100%); }
+.bg-snow { background: linear-gradient(135deg, #e6e9f0 0%, #eef1f5 100%); color: #333; }
+.bg-snow .text-secondary { color: rgba(0,0,0,0.6); }
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}

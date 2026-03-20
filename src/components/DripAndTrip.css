@@ -1,0 +1,136 @@
+.drip-trip-container {
+  width: 100%;
+  padding: 3rem;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.05), #050505);
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.drip-trip-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  color: white;
+}
+
+.drip-trip-header h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.2rem;
+}
+
+.location-info {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.1rem;
+}
+
+.dt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 1rem;
+}
+
+.dt-card {
+  padding: 2.5rem;
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.dt-card:hover {
+  transform: translateY(-5px);
+  background: rgba(15, 23, 42, 0.8);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.tag {
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.15rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.card-body h3 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1.2;
+}
+
+.outfit-box, .place-box {
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 4px solid #a855f7;
+  border-radius: 8px;
+}
+
+.place-box {
+  border-color: #06b6d4;
+}
+
+.outfit-text, .place-text {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: white;
+}
+
+.advice-text, .vibe-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+}
+
+.dt-footer-banner {
+  margin-top: auto;
+  padding: 1.2rem 2rem;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #a855f7;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+@media (max-width: 1024px) {
+  .dt-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .drip-trip-container {
+    padding: 2rem 1rem;
+    height: auto;
+  }
+
+  .card-body h3 {
+    font-size: 1.4rem;
+  }
+}

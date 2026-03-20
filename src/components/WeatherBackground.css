@@ -1,0 +1,156 @@
+.weather-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+  background-color: #050505; /* True black for Gen Z theme */
+  transition: background-color 2s ease-in-out;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
+}
+
+/* Sunny Background */
+.sunny { background: linear-gradient(180deg, #1e3a8a 0%, #0891b2 100%); }
+.sun-effect {
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  width: 300px;
+  height: 300px;
+}
+.sun-core {
+  width: 150px;
+  height: 150px;
+  background: #fbbf24;
+  border-radius: 50%;
+  box-shadow: 0 0 100px #fbbf24;
+  opacity: 0.8;
+  animation: pulse 4s infinite alternate;
+  will-change: transform;
+}
+
+@keyframes pulse {
+  from { transform: scale(1) translateZ(0); opacity: 0.8; }
+  to { transform: scale(1.1) translateZ(0); opacity: 1; }
+}
+
+/* Starry Background */
+.starry { background: linear-gradient(180deg, #020617 0%, #1e1b4b 100%); }
+.stars { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.3;
+  width: 2px;
+  height: 2px;
+  box-shadow: 0 0 4px white;
+  animation: twinkle var(--duration, 3s) infinite var(--delay, 0s);
+  will-change: transform, opacity;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1) translateZ(0); }
+  50% { opacity: 1; transform: scale(1.2) translateZ(0); }
+}
+
+/* Cloudy Background */
+.cloudy { background: linear-gradient(180deg, #0f172a 0%, #475569 100%); }
+.cloud {
+  position: absolute;
+  width: 400px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  filter: blur(60px);
+  border-radius: 50%;
+  animation: floatCloud 20s infinite linear;
+  will-change: transform;
+}
+.c1 { top: 20%; left: -10%; animation-duration: 35s; }
+.c2 { top: 50%; left: -20%; animation-duration: 50s; }
+.c3 { top: 10%; right: -10%; animation-duration: 45s; }
+
+@keyframes floatCloud {
+  from { transform: translateX(-10vw) translateZ(0); }
+  to { transform: translateX(110vw) translateZ(0); }
+}
+
+/* Rainy Background */
+.rainy { background: linear-gradient(180deg, #020617 0%, #1e293b 100%); }
+.rain { position: absolute; width:100%; height: 100%; top: 0; }
+.drop {
+  position: absolute;
+  width: 2px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  top: -100px;
+  left: var(--left, 50%);
+  animation: fall var(--duration, 1.2s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  will-change: transform;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh) translateZ(0); }
+}
+
+/* Snowy Background */
+.snowy { background: linear-gradient(180deg, #1e293b 0%, #cbd5e1 100%); }
+.snow { position: absolute; width: 100%; height: 100%; top: 0; }
+.snowflake {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  top: -10px;
+  left: var(--left, 50%);
+  opacity: 0.8;
+  animation: snowFall var(--duration, 4s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  will-change: transform;
+}
+
+@keyframes snowFall {
+  0% { transform: translateY(0) translateX(0) translateZ(0); }
+  33% { transform: translateY(33vh) translateX(20px) translateZ(0); }
+  66% { transform: translateY(66vh) translateX(-20px) translateZ(0); }
+  100% { transform: translateY(110vh) translateX(0) translateZ(0); }
+}
+
+/* Manual setup for rain/snow positions via JS or random CSS */
+.drop:nth-child(2n) { --left: 10%; --duration: 1.5s; --delay: 0.2s; }
+.drop:nth-child(3n) { --left: 30%; --duration: 1.1s; --delay: 0.5s; }
+.drop:nth-child(4n) { --left: 50%; --duration: 1.3s; --delay: 0.1s; }
+.drop:nth-child(5n) { --left: 70%; --duration: 1.6s; --delay: 0.8s; }
+.drop:nth-child(6n) { --left: 90%; --duration: 1.2s; --delay: 0.4s; }
+.drop:nth-child(7n) { --left: 5%; --duration: 1.4s; --delay: 0.7s; }
+.drop:nth-child(8n) { --left: 25%; --duration: 1.1s; --delay: 0.3s; }
+.drop:nth-child(9n) { --left: 45%; --duration: 1.7s; --delay: 0.9s; }
+.drop:nth-child(10n) { --left: 65%; --duration: 1.3s; --delay: 0.2s; }
+.drop:nth-child(11n) { --left: 85%; --duration: 1.5s; --delay: 0.6s; }
+
+.snowflake:nth-child(2n) { --left: 15%; --duration: 5s; --delay: 1s; }
+.snowflake:nth-child(3n) { --left: 40%; --duration: 6s; --delay: 0.5s; }
+.snowflake:nth-child(4n) { --left: 65%; --duration: 4.5s; --delay: 2s; }
+.snowflake:nth-child(5n) { --left: 85%; --duration: 7s; --delay: 1.5s; }
+
+.star:nth-child(2n) { --duration: 2s; --delay: 0.5s; top: 10%; left: 20%; }
+.star:nth-child(3n) { --duration: 4s; --delay: 1s; top: 40%; left: 60%; }
+.star:nth-child(4n) { --duration: 3s; --delay: 2s; top: 15%; left: 80%; }
+.star:nth-child(5n) { --duration: 5s; --delay: 0s; top: 70%; left: 10%; }
+.star:nth-child(6n) { --duration: 2.5s; --delay: 1.5s; top: 30%; left: 40%; }
+.star:nth-child(7n) { top: 80%; left: 50%; }
+.star:nth-child(8n) { top: 10%; left: 90%; }
+.star:nth-child(9n) { top: 60%; left: 85%; }
+.star:nth-child(10n) { top: 45%; left: 15%; }
